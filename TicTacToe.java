@@ -57,6 +57,7 @@ public class TicTacToe {
   }
 
   // checks the columns for a win. Returns true if a win is found
+  // There is a win in a column if all its elements are the same and not equal to '-'
   private static boolean checkColumns() {
     for (int j = 0; j < MAX; j++) {
       if (checkRowCol(board[0][j], board[1][j], board[2][j]) == true)
@@ -66,8 +67,11 @@ public class TicTacToe {
   }
 
   // checks the diagonals for a win. Returns true if a win is found
+  // There is a win on 1 of the 2 diagonals if all those elements are the same and not equal to '-'
   private static boolean checkDiagonals() {
-    return true;
+    boolean leftTDiagonal = checkRowCol(board[0][0], board[1][1], board[2][2]);
+    boolean rightDiagonal = checkRowCol(board[0][2], board[1][1], board[2][0]);
+    return (leftTDiagonal || rightDiagonal);
   }
 
   // checks if c1, c2, and c3 are similar, i.e 'X' or 'O'. If so, returns true
@@ -87,6 +91,7 @@ public class TicTacToe {
     System.out.println("isBoardFull() = " + isBoardFull());
     System.out.println("checkRows() = " + checkRows());
     System.out.println("checkColumns() = " + checkColumns());
+    System.out.println("checkDiagonals() = " + checkDiagonals());
   }
 }
 
