@@ -58,7 +58,11 @@ public class TicTacToe {
 
   // checks the columns for a win. Returns true if a win is found
   private static boolean checkColumns() {
-    return true;
+    for (int j = 0; j < MAX; j++) {
+      if (checkRowCol(board[0][j], board[1][j], board[2][j]) == true)
+        return true;
+    }
+    return false;
   }
 
   // checks the diagonals for a win. Returns true if a win is found
@@ -82,6 +86,7 @@ public class TicTacToe {
     printBoard();
     System.out.println("isBoardFull() = " + isBoardFull());
     System.out.println("checkRows() = " + checkRows());
+    System.out.println("checkColumns() = " + checkColumns());
   }
 }
 
