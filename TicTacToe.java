@@ -1,6 +1,6 @@
 public class TicTacToe {
 
-  private char[][] board = new char[2][2];
+  private static char[][] board = new char[3][3];
   private char currentPlayer;
 
   public TicTacToe() {
@@ -9,16 +9,24 @@ public class TicTacToe {
   }
 
   // make all slots of the board empty
-  private void initializeBoard() {
-    for (int i = 0; i < 3; i++)
+  private static void initializeBoard() {
+    for (int i = 0; i < 3; i++) {
       for (int j = 0; j < 3; j++)
         board[i][j] = '-';
-
+      }
   }
 
   // prints the current board
-  private void printBoard() {
-
+  private static void printBoard() {
+    printDashes();
+    for (int i = 0; i < 3; i++) {
+      System.out.print("| ");
+      for (int j = 0; j < 3; j++) {
+        System.out.print(board[i][j] + " |");
+      }
+      System.out.println();
+      printDashes();
+    }
   }
 
   // checks whether the board is full or not. Returns true if board is full, and false otherwise
@@ -51,8 +59,15 @@ public class TicTacToe {
     return true;
   }
 
-  public static void main(String[] args) {
+  public static void printDashes() {
+    for (int i = 0; i < 11; i++)
+      System.out.print("-");
+      System.out.println();
+  }
 
+  public static void main(String[] args) {
+    initializeBoard();
+    printBoard();
   }
 }
 
