@@ -74,9 +74,9 @@ public class TicTacToe {
     return (leftTDiagonal || rightDiagonal);
   }
 
-  // checks if c1, c2, and c3 are similar, i.e 'X' or 'O'. If so, returns true
+  // checks if c1, c2, and c3 are similar, i.e 'X' or 'O' and not '-'. If so, returns true
   private static boolean checkRowCol(char c1, char c2, char c3) {
-    return true;
+    return ((c1 != '-') && (c1 == c2) && (c1 == c3));
   }
 
   public static void printDashes() {
@@ -92,6 +92,8 @@ public class TicTacToe {
     System.out.println("checkRows() = " + checkRows());
     System.out.println("checkColumns() = " + checkColumns());
     System.out.println("checkDiagonals() = " + checkDiagonals());
+    System.out.println("checkRowCol('X', '-', 'X') = " + checkRowCol('-', 'X', 'X'));
+    System.out.println("checkRowCol('O', 'O', 'O') = " + checkRowCol('O', 'O', 'O'));
   }
 }
 
