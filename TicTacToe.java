@@ -47,8 +47,13 @@ public class TicTacToe {
   }
 
   // checks the rows for a win. Returns true if a win is found
+  // There is a win in a row if all its elements are the same and not equal to '-'
   private static boolean checkRows() {
-    return true;
+    for (int i = 0; i < MAX; i++) {
+      if (checkRowCol(board[i][0], board[i][1], board[i][2]) == true)
+        return true;
+    }
+    return false;
   }
 
   // checks the columns for a win. Returns true if a win is found
@@ -75,7 +80,8 @@ public class TicTacToe {
   public static void main(String[] args) {
     initializeBoard();
     printBoard();
-    System.out.println(isBoardFull());
+    System.out.println("isBoardFull() = " + isBoardFull());
+    System.out.println("checkRows() = " + checkRows());
   }
 }
 
