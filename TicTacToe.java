@@ -41,8 +41,9 @@ public class TicTacToe {
   }
 
   // returns true if palyer is a winner
+  // A player wins if there is a win either horizontally, vertically, or diagonally
   private static boolean isWinner() {
-    return true;
+    return (checkRows() || checkColumns() || checkDiagonals());
   }
 
   // checks the rows for a win. Returns true if a win is found
