@@ -2,6 +2,7 @@ public class TicTacToe {
 
   private static char[][] board = new char[3][3];
   private char currentPlayer;
+  private static final int MAX = 3;
 
   public TicTacToe() {
     initializeBoard();
@@ -10,8 +11,8 @@ public class TicTacToe {
 
   // make all slots of the board empty
   private static void initializeBoard() {
-    for (int i = 0; i < 3; i++) {
-      for (int j = 0; j < 3; j++)
+    for (int i = 0; i < MAX; i++) {
+      for (int j = 0; j < MAX; j++)
         board[i][j] = '-';
       }
   }
@@ -19,9 +20,9 @@ public class TicTacToe {
   // prints the current board
   private static void printBoard() {
     printDashes();
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < MAX; i++) {
       System.out.print("| ");
-      for (int j = 0; j < 3; j++) {
+      for (int j = 0; j < MAX; j++) {
         System.out.print(board[i][j] + " |");
       }
       System.out.println();
@@ -30,32 +31,37 @@ public class TicTacToe {
   }
 
   // checks whether the board is full or not. Returns true if board is full, and false otherwise
-  private boolean isBoardFull() {
+  private static boolean isBoardFull() {
+    for (int i = 0; i < MAX; i++) {
+      for (int j = 0; j < MAX; j++) {
+        if (board[i][j] == '-') return false;
+      }
+    }
     return true;
   }
 
   // returns true if palyer is a winner
-  private boolean isWinner() {
+  private static boolean isWinner() {
     return true;
   }
 
   // checks the rows for a win. Returns true if a win is found
-  private boolean checkRows() {
+  private static boolean checkRows() {
     return true;
   }
 
   // checks the columns for a win. Returns true if a win is found
-  private boolean checkColumns() {
+  private static boolean checkColumns() {
     return true;
   }
 
   // checks the diagonals for a win. Returns true if a win is found
-  private boolean checkDiagonals() {
+  private static boolean checkDiagonals() {
     return true;
   }
 
   // checks if c1, c2, and c3 are similar, i.e 'X' or 'O'. If so, returns true
-  private boolean checkRowCol(char c1, char c2, char c3) {
+  private static boolean checkRowCol(char c1, char c2, char c3) {
     return true;
   }
 
@@ -68,6 +74,7 @@ public class TicTacToe {
   public static void main(String[] args) {
     initializeBoard();
     printBoard();
+    System.out.println(isBoardFull());
   }
 }
 
